@@ -82,6 +82,7 @@ body {
 }
 
 /* Info Tab */
+background: url('background.jpeg') center/cover no-repeat;
 #info {
     flex-direction: column;
     background-color: #f5f3f0;
