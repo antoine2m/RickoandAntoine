@@ -66,9 +66,7 @@ body {
 }
 
 /* Invite Tab Styling */
-#invite {
-    background: linear-gradient(rgba(138, 153, 104, 0.3), rgba(138, 153, 104, 0.3)), 
-                url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDEwMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSIyIj4KICAKPC9nPgo8L3N2Zz4=') center/cover;
+    background: url('background.jpeg') center/cover no-repeat;
     background-attachment: fixed;
     text-align: center;
     padding: 40px 20px;
