@@ -1,67 +1,271 @@
-@import url('https://fonts.googleapis.com/css2?family=Aptos:wght@300&family=Cinzel+Decorative:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Aptos:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Aptos', sans-serif;
-    background-color: #8a9968;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cinzel Decorative', serif;
-}
-
-/* General Tab Styling */
-.tab {
+/* Tab Navigation */
+.tabs {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
     padding: 20px;
-    margin: 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .tab {
-        padding: 10px;
-    }
-}
-
-/* Invite Tab */
-.invite-tab {
-    position: relative;
-    background-image: url('path/to/invite-background.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.invite-tab::after {
-    content: '';
-    position: absolute;
+    background-color: rgba(138, 153, 104, 0.9);
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);  /* Overlay effect */
+    z-index: 100;
+}
+
+.tablinks {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.tablinks:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tablinks.active {
+    background-color: white;
+    color: #8a9968;
+}
+
+/* Tab Content */
+.tabcontent {
+    display: none;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    animation: fadeIn 0.5s;
+}
+
+.tabcontent.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Invite Tab Styling */
+#invite {
+    background: linear-gradient(rgba(138, 153, 104, 0.3), rgba(138, 153, 104, 0.3)), 
+                url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDEwMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSIyIj4KICAKPC9nPgo8L3N2Zz4=') center/cover;
+    background-attachment: fixed;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.invite-container {
+    color: white;
+    max-width: 900px;
+}
+
+#invite h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 5em;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.ampersand {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3.5em;
+    font-weight: 400;
+    margin: 15px 0;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.invite-details {
+    margin-top: 40px;
+}
+
+.date-time {
+    font-family: 'Aptos', sans-serif;
+    font-size: 1.8em;
+    font-weight: 500;
+    margin: 20px 0;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.location {
+    font-family: 'Aptos', sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: 25px 0;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.invitation-text {
+    font-family: 'Aptos', sans-serif;
+    font-size: 1.4em;
+    font-weight: 300;
+    margin: 40px 0 0 0;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Map Tab */
-.map-tab {
-    overflow: hidden;
+#map {
+    padding: 20px;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
-.map-tab iframe {
+#map iframe {
     width: 100%;
-    height: 400px;
-    border: 0;
+    max-width: 900px;
+    height: 600px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Details Tab */
-.details-tab {
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
+#details {
+    background-color: #f5f3f0;
+    flex-direction: column;
+    padding: 40px 20px;
 }
 
-.details-tab h2 {
-    margin-top: 0;
+#details h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.5em;
+    color: #8a9968;
+    margin-bottom: 20px;
+}
+
+#details p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #invite h1 {
+        font-size: 3.5em;
+    }
+    
+    .ampersand {
+        font-size: 2.5em;
+    }
+    
+    .date-time {
+        font-size: 1.5em;
+    }
+    
+    .location {
+        font-size: 1.2em;
+    }
+    
+    .invitation-text {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .tabs {
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .tablinks {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    
+    #invite h1 {
+        font-size: 2.5em;
+    }
+    
+    .ampersand {
+        font-size: 1.8em;
+    }
+    
+    .date-time {
+        font-size: 1.2em;
+    }
+    
+    .location {
+        font-size: 1em;
+    }
+    
+    .invitation-text {
+        font-size: 0.95em;
+        letter-spacing: 1px;
+    }
+    
+    #map iframe {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs {
+        gap: 5px;
+        padding: 10px;
+    }
+    
+    .tablinks {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+    
+    #invite {
+        padding: 20px 10px;
+    }
+    
+    #invite h1 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+    
+    .ampersand {
+        font-size: 1.3em;
+        margin: 10px 0;
+    }
+    
+    .date-time {
+        font-size: 0.95em;
+    }
+    
+    .location {
+        font-size: 0.85em;
+    }
+    
+    .invitation-text {
+        font-size: 0.8em;
+        letter-spacing: 0.5px;
+    }
+    
+    #map iframe {
+        height: 300px;
+    }
 }
