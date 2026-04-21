@@ -3,135 +3,99 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ricko & Antoine</title>
 
-  <!-- Fonts (closest match to your invite’s elegant serif + clean sans) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <header class="topbar">
-    <nav class="tabs" aria-label="Site tabs">
-      <button class="tab is-active" data-tab="invite" type="button">Invitation</button>
-      <button class="tab" data-tab="map" type="button">Map</button>
-      <button class="tab" data-tab="gift" type="button">Gift</button>
-    </nav>
-  </header>
 
-  <main>
-    <!-- TAB 1: INVITATION -->
-    <section id="invite" class="panel is-active" role="tabpanel">
-      <div class="hero" aria-label="Invitation cover">
-        <!-- Background image is set in CSS so it covers the full screen -->
-        <div class="hero__overlay">
-          <div class="invite-text" aria-label="Invitation text">
-            <div class="invite-text__top">TOGETHER WITH THEIR FAMILIES</div>
+<header class="topbar">
+  <nav class="tabs">
+    <button class="tab is-active" data-tab="invite">Invitation</button>
+    <button class="tab" data-tab="map">Map</button>
+    <button class="tab" data-tab="gift">Gift</button>
+  </nav>
+</header>
 
-            <div class="invite-text__names">
-              <div class="names__big">RICKO</div>
-              <div class="names__amp">&amp;</div>
-              <div class="names__big">ANTOINE</div>
-            </div>
+<main>
 
-            <div class="invite-text__body">
-              ARE EXCITED TO INVITE YOU TO<br/>
-              CELEBRATE THEIR MARRIAGE<br/>
-              WITH WEDDING CEREMONY,<br/>
-              COCKTAIL, DINNER AND DANCING
-            </div>
+<!-- TAB 1 -->
+<section id="invite" class="panel is-active">
+  <div class="hero">
+    <div class="hero-overlay">
+      <div class="invite-text">
+        <div class="small-top">TOGETHER WITH THEIR FAMILIES</div>
 
-            <div class="invite-text__date">
-              SATURDAY 9TH MAY 2026<br/>
-              AT 4 PM
-            </div>
+        <div class="names">
+          <div class="name">RICKO</div>
+          <div class="amp">&</div>
+          <div class="name">ANTOINE</div>
+        </div>
 
-            <div class="invite-text__place">
-              MAS DE PONGE<br/>
-              1570 ROUTE D’ANDUZE<br/>
-              30900 NÎMES<br/>
-              FRANCE
-            </div>
-          </div>
+        <div class="body">
+          ARE EXCITED TO INVITE YOU TO<br>
+          CELEBRATE THEIR MARRIAGE<br>
+          WITH WEDDING CEREMONY,<br>
+          COCKTAIL, DINNER AND DANCING
+        </div>
+
+        <div class="date">
+          SATURDAY 9TH MAY 2026<br>
+          AT 4 PM
+        </div>
+
+        <div class="place">
+          MAS DE PONGE<br>
+          1570 ROUTE D’ANDUZE<br>
+          30900 NÎMES – FRANCE
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- TAB 2: MAP -->
-    <section id="map" class="panel" role="tabpanel">
-      <div class="content">
-        <h1 class="h1">Directions to Mas de Ponge</h1>
-        <p class="lead">
-          Address: <strong>Mas de Ponge, 1570 Route d’Anduze, 30900 Nîmes, France</strong>
-        </p>
+<!-- TAB 2 -->
+<section id="map" class="panel">
+  <div class="content">
+    <h1>How to get to Mas de Ponges</h1>
 
-        <div class="map-wrap" role="group" aria-label="Map and directions">
-          <!-- Google Maps embed (no API key needed) -->
-          <iframe
-            class="map"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Mas%20de%20Ponge%2C%201570%20Route%20d%27Anduze%2C%2030900%20N%C3%AEmes%2C%20France&output=embed">
-          </iframe>
+    <iframe
+      class="map"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=Mas%20de%20Ponges%2C%201570%20Route%20d%27Anduze%2C%2030900%20N%C3%AEmes&output=embed">
+    </iframe>
 
-          <div class="map-actions">
-            <a class="btn"
-               target="_blank" rel="noopener"
-               href="https://www.google.com/maps/dir/?api=1&destination=Mas%20de%20Ponge%2C%201570%20Route%20d%27Anduze%2C%2030900%20N%C3%AEmes%2C%20France&travelmode=driving">
-              Get directions (Driving)
-            </a>
+    <div class="map-actions">
+      <a class="btn"
+         href="https://www.google.com/maps/dir/?api=1&destination=Mas%20de%20Ponges%2C%201570%20Route%20d%27Anduze%2C%2030900%20N%C3%AEmes"
+         target="_blank">
+        Get directions
+      </a>
+    </div>
+  </div>
+</section>
 
-            <a class="btn btn--ghost"
-               target="_blank" rel="noopener"
-               href="https://www.google.com/maps/search/?api=1&query=Mas%20de%20Ponge%2C%201570%20Route%20d%27Anduze%2C%2030900%20N%C3%AEmes%2C%20France">
-              Open in Google Maps
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- TAB 3 -->
+<section id="gift" class="panel">
+  <div class="content">
+    <h1>Gift</h1>
+    <p>
+      Your presence is already the most beautiful gift.<br>
+      If you wish to contribute, more details will follow.
+    </p>
+  </div>
+</section>
 
-    <!-- TAB 3: GIFT -->
-    <section id="gift" class="panel" role="tabpanel">
-      <div class="content">
-        <h1 class="h1">Gift</h1>
+</main>
 
-        <p class="lead">
-          Your presence is already the greatest gift.
-          If you would like to contribute, you can use the information below.
-        </p>
-
-        <div class="card">
-          <h2 class="h2">Optional contribution</h2>
-          <p class="muted">Edit this section with your preferred gift message (bank details, registry link, honeymoon fund, etc.).</p>
-
-          <div class="field">
-            <label for="giftLink">Gift / Registry link</label>
-            <input id="giftLink" type="url" placeholder="https://…" />
-          </div>
-
-          <div class="field">
-            <label for="giftNote">Short message</label>
-            <textarea id="giftNote" rows="4" placeholder="Example: If you wish to contribute to our honeymoon…"></textarea>
-          </div>
-
-          <div class="row">
-            <button class="btn" type="button" id="saveGift">Save locally (this device)</button>
-            <button class="btn btn--ghost" type="button" id="clearGift">Clear</button>
-          </div>
-
-          <p class="muted small">
-            (This “Save locally” stores text in your browser only — no server, no tracking.)
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
