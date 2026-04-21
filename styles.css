@@ -1,156 +1,274 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Aptos:wght@300;400;500&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+  /* Palette matching the invite */
+  --olive: #6d7451;
+  --olive-dark: #52583d;
+  --cream: #f5f1e6;
+  --cream-strong: #fffaf0;
+
+  --serif: "Cinzel", serif;
+  --sans: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  --shadow: 0 10px 30px rgba(0,0,0,.18);
+  --radius: 18px;
 }
 
-body {
-    font-family: 'Aptos', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--olive);
+  color: var(--cream);
 }
 
-/* Tab Navigation */
-.tab-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    background-color: rgba(138, 153, 104, 0.9);
-    z-index: 100;
+/* Top tabs */
+.topbar{
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,0));
+  padding: 14px 14px 8px;
 }
 
-.tab-btn {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 500;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+.tabs{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
-.tab-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.tab{
+  appearance: none;
+  border: 1px solid rgba(245,241,230,.35);
+  background: rgba(0,0,0,.12);
+  color: var(--cream);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font: 500 14px/1 var(--sans);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.tab:hover{ transform: translateY(-1px); border-color: rgba(245,241,230,.55); }
+.tab.is-active{
+  background: rgba(245,241,230,.14);
+  border-color: rgba(245,241,230,.75);
 }
 
-.tab-btn.active {
-    background-color: white;
-    color: #8a9968;
+/* Panels */
+.panel{
+  display: none;
+  min-height: 100vh;
+}
+.panel.is-active{ display: block; }
+
+/* HERO (Tab 1) */
+.hero{
+  min-height: 100vh;
+  width: 100%;
+  /* Full-screen background image */
+  background-image: url("assets/invite.jpeg");
+  background-size: cover;           /* fill screen */
+  background-position: center;      /* keep centred */
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-/* Tab Content */
-.tab-content {
-    display: none;
-    flex: 1;
-    width: 100%;
-    overflow: auto;
+/* Optional tint to keep readability while preserving colours */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at 50% 45%, rgba(0,0,0,.12), rgba(0,0,0,.22));
 }
 
-.tab-content.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.hero__overlay{
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  place-items: center; /* centres the words in the middle of the screen */
+  padding: 90px 20px 40px; /* space for tabs at top */
 }
 
-/* Home Tab - Background Image */
-#home {
-    background: url('WhatsApp Image 2026-03-31 at 19.08.05.jpeg') center/cover no-repeat;
-    width: 100%;
-    height: 100%;
-}
-.home-box {
-    text-align: center;
-    max-width: 600px;
-}
-
-.home-box h1 {
-    font-family: 'Cinzel Decorative', serif;
-    color: #8a9968;
-    font-size: 2.5em;
-    margin-bottom: 30px;
+/* Invitation typography */
+.invite-text{
+  text-align: center;
+  color: var(--cream-strong);
+  max-width: 520px;
+  padding: 22px 20px;
+  border-radius: var(--radius);
+  background: rgba(0,0,0,.08);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(4px);
 }
 
-.home-box p {
-    font-size: 1.2em;
-    color: #333;
-    line-height: 2;
-    margin: 10px 0;
-    
-/* Map Tab */
-#map {
-    width: 100%;
-    height: 100%;
-    padding: 0;
+.invite-text__top{
+  font: 400 13px/1.25 var(--sans);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  opacity: .92;
+  margin-bottom: 14px;
 }
 
-#map iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+.invite-text__names{
+  margin: 4px 0 16px;
+}
+.names__big{
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: .06em;
+  font-size: clamp(34px, 6vw, 56px);
+}
+.names__amp{
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 5vw, 44px);
+  margin: 4px 0;
+  opacity: .95;
 }
 
-/* Info Tab */
-background: url('background.jpeg') center/cover no-repeat;
-#info {
-    flex-direction: column;
-    background-color: #f5f3f0;
-    padding: 40px 20px;
+.invite-text__body{
+  font: 300 13.5px/1.5 var(--sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .95;
+  margin: 8px 0 18px;
 }
 
-
+.invite-text__date{
+  font: 500 14px/1.5 var(--sans);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin: 10px 0 18px;
 }
 
-.info-box strong {
-    color: #8a9968;
+.invite-text__place{
+  font: 400 13px/1.5 var(--sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: .92;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .tab-buttons {
-        gap: 10px;
-        padding: 15px;
-    }
-    
-    .tab-btn {
-        padding: 8px 15px;
-        font-size: 0.9em;
-    }
-    
-    .info-box h1 {
-        font-size: 1.8em;
-    }
-    
-    .info-box p {
-        font-size: 1em;
-    }
+/* Content pages (tabs 2 & 3) */
+.content{
+  padding: 110px 18px 40px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
-@media (max-width: 480px) {
-    .tab-buttons {
-        gap: 5px;
-        padding: 10px;
-    }
-    
-    .tab-btn {
-        padding: 6px 10px;
-        font-size: 0.8em;
-    }
-    
-    .info-box h1 {
-        font-size: 1.5em;
-    }
-    
-    .info-box p {
-        font-size: 0.9em;
-        line-height: 1.6;
-    }
+.h1{
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: .04em;
+  margin: 0 0 10px;
 }
+.h2{
+  font-family: var(--serif);
+  letter-spacing: .03em;
+  margin: 0 0 8px;
+}
+.lead{
+  margin: 0 0 22px;
+  opacity: .95;
+}
+.muted{ opacity: .85; }
+.small{ font-size: 12px; }
+
+.map-wrap{
+  display: grid;
+  gap: 14px;
+}
+
+.map{
+  width: 100%;
+  height: min(62vh, 520px);
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.map-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Card + inputs */
+.card{
+  background: rgba(0,0,0,.10);
+  border: 1px solid rgba(245,241,230,.18);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(4px);
+}
+
+.field{
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+label{
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .9;
+}
+
+input, textarea{
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(245,241,230,.22);
+  background: rgba(0,0,0,.14);
+  color: var(--cream);
+  padding: 12px 12px;
+  font: 400 14px/1.4 var(--sans);
+  outline: none;
+}
+input::placeholder, textarea::placeholder{ color: rgba(245,241,230,.55); }
+input:focus, textarea:focus{
+  border-color: rgba(245,241,230,.55);
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* Buttons */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgba(245,241,230,.45);
+  background: rgba(245,241,230,.10);
+  color: var(--cream);
+  padding: 12px 14px;
+  border-radius: 999px;
+  font: 500 14px/1 var(--sans);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.btn:hover{ transform: translateY(-1px); border-color: rgba(245,241,230,.70); }
+.btn--ghost{
+  background: rgba(0,0,0,.12);
+  border-color: rgba(245,241,230,.30);
+}
+
+/* Mobile tweaks */
+@media (max-width: 420px){
+  .invite-text{
+    max-width: 92vw;
+    padding: 18px 14px;
+  }
+}
+``
